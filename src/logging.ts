@@ -22,7 +22,7 @@ function outputLog(data: Partial<ILogData>, thrownError: any) {
         if (thrownError) {
             console.error(thrownError)
         }
-    } else if (data.statusCode < 400) {
+    } else if (data.statusCode! < 400) {
         process.stdout.write(JSON.stringify(data) + '\n')
     } else {
         process.stderr.write(JSON.stringify(data) + '\n')

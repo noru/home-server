@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
+    "target": "es2017",
+    "module": "commonjs",
+    "sourceMap": true,
     "lib": [
       "es5",
       "es2015",
@@ -9,8 +10,7 @@
       "dom.iterable",
       "scripthost"
     ],
-    "allowJs": true,
-    "jsx": "react",
+    "outDir": "./dist",
     "strict": true,
     "noImplicitAny": false,
     "strictNullChecks": true,
@@ -32,8 +32,7 @@
     "node_modules",
     "build",
     "dist",
-    "test",
-    "src/legacy"
+    "test"
   ],
   "awesomeTypescriptLoaderOptions": {
     "ignoreDiagnostics": [2339, 2322, 7027, 6133, 2564, 2345, 2531, 2351],
