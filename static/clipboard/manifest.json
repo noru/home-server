@@ -3,9 +3,19 @@
   "name": "Drew's web clipboard",
   "icons": [
     {
-      "src": "/static/clipboard/favicon.png",
+      "src": "/static/clipboard/icon192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/clipboard/icon260x260.png",
       "sizes": "228x228",
       "type": "image/png"
+    },
+    {
+      "src": "/static/clipboard/icon512x512.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
     }
   ],
   "start_url": ".",
