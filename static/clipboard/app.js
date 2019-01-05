@@ -39,7 +39,7 @@
     if (timeoutId !== null) {
       clearTimeout(timeoutId)
     }
-    setTimeout(() => {
+    timeoutId = setTimeout(() => {
       wsClient.send('set::' + e.target.value)
       timeoutId = null
       editing = false
