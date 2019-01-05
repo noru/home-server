@@ -8,7 +8,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "https://xiuz.hu/clipboard",
+  "start_url": ".",
   "theme_color": "#282828",
   "display": "fullscreen",
   "orientation": "portrait",
