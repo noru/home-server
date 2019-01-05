@@ -12,7 +12,7 @@ var filesToCache = [
 
 // todo: check if service worker is installed before
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').then(function() {
+  navigator.serviceWorker.register('/static/clipboard/sw.js').then(function() {
     console.log('sw: registration ok');
   }).catch(function(err) {
     console.error(err);
