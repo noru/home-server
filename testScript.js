@@ -1,6 +1,6 @@
 (function() {
 
-  let client = new WebSocket('ws://localhost:3000/paste')
+  let client = new WebSocket('ws://localhost:3000/ws/clipboard')
   client.onerror = function(error) {
     console.error(error)
   }

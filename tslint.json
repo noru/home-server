@@ -1,7 +1,7 @@
 {
   "defaultSeverity": "error",
   "extends": [
-      "tslint:recommended"
+    "tslint:recommended"
   ],
   "jsRules": {
     "variable-name": [
@@ -25,6 +25,7 @@
     "object-literal-sort-keys": false,
     "no-string-literal": false,
     "no-console": [
+      true,
       "log"
     ],
     "no-bitwise": false,

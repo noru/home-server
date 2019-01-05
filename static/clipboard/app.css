@@ -1,0 +1,63 @@
+.clipboard-body {
+  font-size: 14px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+  text-align: center;
+  color: white;
+  padding: 1em;
+}
+
+textarea {
+  width: 100%;
+  height: 50vh;
+  background-color: #fff;
+  background-image:
+  linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
+  font-size: 1.5em;
+  border-radius: 5px;
+  padding: 2px 8px;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  font-weight: lighter;
+}
+
+button.btn {
+  padding: 5px 10px;
+  height: 40px;
+  width: 45%;
+  border-radius: 5px;
+  font-size: 1em;
+  color: white;
+  font-weight: lighter;
+}
+
+button.btn.copy {
+  background: #0c374d;
+  border-color: #107896;
+}
+
+button.btn.clear {
+  background: #107896;
+  border-color: #107896;
+}
+
+.succ-msg {
+  width: 30%;
+  padding: 20px;
+  font-size: 15px;
+  height: 15px;
+  background: limegreen;
+  position: absolute;
+  left: 35%;
+  bottom: -60px;
+  transition: bottom .5s ease-in-out;
+  z-index: 999;
+  pointer-events: none;
+}

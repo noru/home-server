@@ -1,0 +1,15 @@
+{
+  "short_name": "Clipboard",
+  "name": "Drew's web clipboard",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#282828"
+}

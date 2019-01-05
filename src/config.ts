@@ -1,12 +1,18 @@
+const path = require('path')
+const env  = process.env
 
-export interface IConfig {
-  port: number
-  prettyLog: boolean
+enum NodeEnv {
+  DEV  = 'development',
+  PROD = 'production',
 }
+const NODE_ENV = env.NODE_ENV || NodeEnv.DEV
 
 const config = {
-  port: process.env.NODE_PORT || 3000,
-  prettyLog: process.env.NODE_ENV === 'development',
+  env              : NODE_ENV,
+  port             : env.NODE_PORT || 3000,
+  prettyLog        : NODE_ENV === NodeEnv.DEV,
+  rootPath         : path.resolve('.'),
+  staticContentPath: env.STATIC_CONTENT_PATH || 'static',
 }
 
-export { config }
+export default config
