@@ -3,12 +3,12 @@
   "name": "Drew's web clipboard",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "/static/clipboard/favicon.png",
       "sizes": "144x144",
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://xiuz.hu/clipboard",
   "theme_color": "#282828",
   "display": "fullscreen",
   "orientation": "portrait",
