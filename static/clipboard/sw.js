@@ -3,6 +3,7 @@ var cacheName = 'clipboard';
 var filesToCache = [
   '/',
   'index.html',
+  'app.css',
   'app.js',
   'sw.js',
   'manifest.json',
