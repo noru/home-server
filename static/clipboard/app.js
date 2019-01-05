@@ -1,11 +1,13 @@
 !function(){
 
+  const SCHEMA =
   function $(id) {
     return document.getElementById(id)
   }
 
   function createWsClient() {
-    return new WebSocket('ws://' + window.location.host + '/ws/clipboard')
+    let protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws'
+    return new WebSocket(protocol + '//' + window.location.host + '/ws/clipboard')
   }
 
   var msg = $('msg'),
