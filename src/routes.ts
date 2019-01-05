@@ -1,7 +1,7 @@
 
 import * as Router from 'koa-router'
 import config from './config'
-import { createReadStream } from 'fs'
+import { createReadStream, statSync } from 'fs'
 
 console.info(config.rootPath)
 const localStorage = new (require('node-localstorage').LocalStorage)(config.rootPath + '/__clipboard')
@@ -14,8 +14,11 @@ httpRouter.get('/', async (ctx) => {
 })
 
 httpRouter.get('/clipboard', async ctx => {
+  let indexPath = config.rootPath + '/static/clipboard/index.html'
+  let fileStat = statSync(indexPath)
   ctx.type = 'html'
-  ctx.body = createReadStream(config.rootPath + '/static/clipboard/index.html')
+  ctx.set('Content-Length', fileStat.size.toString())
+  ctx.body = createReadStream(indexPath)
 })
 
 wsRouter.all('/ws/clipboard', ctx => {

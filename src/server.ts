@@ -8,7 +8,13 @@ import routes from './routes'
 import * as prettyjson from 'prettyjson'
 
 const staticServer = new Koa()
-staticServer.use(serve(config.staticContentPath))
+staticServer.use(serve(config.staticContentPath, {
+  setHeaders: (res, path: string) => {
+    if (path.endsWith('/clipboard/sw.js')) {
+      res.setHeader('Service-Worker-Allowed', '/')
+    }
+  },
+}))
 
 const app = websockify(new Koa())
 app.use(mount('/static', staticServer))

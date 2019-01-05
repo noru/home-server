@@ -18,7 +18,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "/clipboard",
   "theme_color": "#282828",
   "display": "fullscreen",
   "orientation": "portrait",

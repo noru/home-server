@@ -1,19 +1,20 @@
 var cacheName = 'clipboard';
 
 var filesToCache = [
-  '/',
+  '/clipboard',
   '/static/clipboard/app.css',
   '/static/clipboard/app.js',
   '/static/clipboard/sw.js',
   '/static/clipboard/manifest.json',
-  '/static/clipboard/favicon.png',
+  '/static/clipboard/icon192x192.png',
+  '/static/clipboard/icon512x512.png',
   '//cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js',
   '//cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js',
 ];
 
 // todo: check if service worker is installed before
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/static/clipboard/sw.js').then(function() {
+  navigator.serviceWorker.register('/static/clipboard/sw.js', { scope: '/' }).then(function() {
     console.log('sw: registration ok');
   }).catch(function(err) {
     console.error(err);
@@ -41,7 +42,7 @@ self.addEventListener('fetch', function(event) {
       return response || fetch(event.request);
     }).catch(function (err) {
       // if response not cached and network not available an error is thrown => return fallback image
-      return caches.match('img/offline-img.png');
+      return caches.match('/static/clipboard/icon512x512.png');
     })
   )
 });
