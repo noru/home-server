@@ -2,12 +2,13 @@ var cacheName = 'clipboard';
 
 var filesToCache = [
   '/',
-  'index.html',
-  'app.css',
-  'app.js',
-  'sw.js',
-  'manifest.json',
-  'favicon.png',
+  '/static/clipboard/app.css',
+  '/static/clipboard/app.js',
+  '/static/clipboard/sw.js',
+  '/static/clipboard/manifest.json',
+  '/static/clipboard/favicon.png',
+  '//cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js',
+  '//cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js',
 ];
 
 // todo: check if service worker is installed before
