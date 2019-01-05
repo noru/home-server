@@ -58,7 +58,7 @@ button.btn.clear {
   background: limegreen;
   position: absolute;
   left: 35%;
-  bottom: -60px;
+  bottom: -100px;
   transition: bottom .5s ease-in-out;
   z-index: 999;
   pointer-events: none;
