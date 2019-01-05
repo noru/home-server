@@ -1,6 +1,5 @@
 !function(){
 
-  const SCHEMA =
   function $(id) {
     return document.getElementById(id)
   }
