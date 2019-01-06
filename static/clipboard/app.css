@@ -63,3 +63,12 @@ button.btn.clear {
   z-index: 999;
   pointer-events: none;
 }
+
+#has-error.show + span,
+#has-error {
+  display: none;
+}
+
+#has-error.show {
+  display: initial;
+}

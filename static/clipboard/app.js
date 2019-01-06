@@ -4,15 +4,41 @@
     return document.getElementById(id)
   }
 
-  function createWsClient() {
+  function createWsClient(pastearea, errorIcon) {
     let protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
-    return new WebSocket(protocol + '//' + window.location.host + '/ws/clipboard')
+    let newClient = new WebSocket(protocol + '//' + window.location.host + '/ws/clipboard')
+
+    function showError(show) {
+      errorIcon.className = show ? 'show' : ''
+    }
+
+    newClient.onerror = function(error) {
+      console.error(error)
+      showError(true)
+    }
+
+    newClient.onclose = function() {
+      console.error('ws closed, why?')
+      showError(true)
+    }
+
+    newClient.onmessage = function(evt) {
+      showError(false)
+      pastearea.value = evt.data
+    }
+
+    newClient.onopen = function() {
+      showError(false)
+      wsClient.send('get')
+    }
+    return newClient
   }
 
   var msg = $('msg'),
       pastearea = $('paste-area'),
       clear = $('clear'),
-      wsClient = createWsClient(),
+      errorIcon = $('has-error'),
+      wsClient = createWsClient(pastearea, errorIcon),
       editing = false,
       timeoutId = null
 
@@ -23,17 +49,6 @@
     }, 2000);
   })
 
-  wsClient.onerror = function(error) {
-    console.error(error)
-    wsClient = createWsClient()
-  }
-  wsClient.onmessage = function(evt) {
-    pastearea.value = evt.data
-  }
-
-  wsClient.onopen = function() {
-    wsClient.send('get')
-  }
   pastearea.oninput = function(e) {
     editing = true
     if (timeoutId !== null) {
@@ -51,9 +66,36 @@
     wsClient.send('set::')
   }
 
-  setInterval(() => {
-    !editing && wsClient.send('get')
-  }, 1000);
+  var syncedAt = new Date,
+      deamonAt = new Date
 
+  function daemon() {
+    let now = new Date
+    function syncContent() {
+      if (now - syncedAt > 2000) {
+        !editing && wsClient.send('get')
+        syncedAt = now
+      }
+    }
 
+    function ensureConnection() {
+      if (now - deamonAt > 5000) {
+        if (wsClient.readyState > 1) {
+          wsClient = createWsClient(pastearea, errorIcon)
+        }
+        deamonAt = now
+      }
+    }
+
+    [syncContent, ensureConnection].forEach(function(func) {
+      try {
+        func()
+      } catch (e) {
+        console.error(e)
+      }
+    })
+
+    requestAnimationFrame(daemon)
+  }
+  requestAnimationFrame(daemon)
 }()

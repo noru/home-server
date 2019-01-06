@@ -25,7 +25,7 @@
   ],
   "start_url": "/clipboard",
   "theme_color": "#282828",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "background_color": "#282828"
 }
