@@ -3,17 +3,22 @@
   "name": "Drew's web clipboard",
   "icons": [
     {
-      "src": "/static/clipboard/icon192x192.png",
+      "src": "/static/clipboard/icon64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/clipboard/icon128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/clipboard/icon192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/static/clipboard/icon260x260.png",
-      "sizes": "228x228",
-      "type": "image/png"
-    },
-    {
-      "src": "/static/clipboard/icon512x512.png",
+      "src": "/static/clipboard/icon512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
