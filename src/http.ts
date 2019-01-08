@@ -63,7 +63,7 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage })
 
-httpRouter.post('/files', /* authCheck, */ upload.any(), async (ctx) => {
+httpRouter.post('/files', authCheck, upload.any(), async (ctx) => {
   ctx.body = 'uploaded'
 })
 
@@ -86,7 +86,7 @@ httpRouter.get('/files', async ctx => {
   }
 })
 
-httpRouter.del('/files/:filename', /** authCheck, */ async ctx => {
+httpRouter.del('/files/:filename', authCheck, async ctx => {
   let filename = ctx.params.filename
   let deleted = 0
   await unlink(config.volumn + '/' + filename)

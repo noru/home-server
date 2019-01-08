@@ -15,7 +15,7 @@ const config = {
   staticContentPath: env.STATIC_CONTENT_PATH || 'static',
   tempFileDir      : '/__files',
   OTPSecret        : 'HWDMH7PAKUX25GM6CPEI76QUMQWUSEVR',
-  volumn           : '/filesStorage',
+  volumn           : '/fileStorage',
 }
 
 export default config
