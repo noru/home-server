@@ -16,8 +16,13 @@ staticServer.use(serve(config.staticContentPath, {
   },
 }))
 
+const fileStorage = new Koa()
+fileStorage.use(serve(config.volumn))
+fileStorage.use(serve(config.rootPath + config.tempFileDir))
+
 const app = websockify(new Koa())
 app.use(mount('/static', staticServer))
+app.use(mount('/files/', fileStorage))
 app.use(logger)
 app.use(routes.http)
 app.ws.use(routes.ws)

@@ -62,4 +62,5 @@ typings/
 .next
 
 __clipboard
+__files
 dist
