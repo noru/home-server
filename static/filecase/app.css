@@ -34,6 +34,9 @@ h1 {
   border: none;
   color: #6d7683;
 }
+.tab-header button:focus {
+  outline: none;
+}
 
 button.active {
   font-weight: bolder;

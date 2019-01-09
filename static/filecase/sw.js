@@ -6,7 +6,6 @@ var filesToCache = [
   '/static/filecase/app.js',
   '/static/filecase/sw.js',
   '/static/filecase/manifest.json',
-  '/static/filecase/favicon.png',
   '/static/filecase/filecase64.png',
   '/static/filecase/filecase128.png',
   '/static/filecase/filecase192.png',
@@ -15,7 +14,7 @@ var filesToCache = [
 
 // todo: check if service worker is installed before
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/static/filecase/sw.js', { scope: '/' }).then(function() {
+  navigator.serviceWorker.register('/static/filecase/sw.js', { scope: '/filecase' }).then(function() {
     console.log('sw: registration ok');
   }).catch(function(err) {
     console.error(err);

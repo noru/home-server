@@ -6,7 +6,6 @@ var filesToCache = [
   '/static/clipboard/app.js',
   '/static/clipboard/sw.js',
   '/static/clipboard/manifest.json',
-  '/static/clipboard/favicon.png',
   '/static/clipboard/icon64.png',
   '/static/clipboard/icon128.png',
   '/static/clipboard/icon192.png',
@@ -17,7 +16,7 @@ var filesToCache = [
 
 // todo: check if service worker is installed before
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/static/clipboard/sw.js', { scope: '/' }).then(function() {
+  navigator.serviceWorker.register('/static/clipboard/sw.js', { scope: '/clipboard' }).then(function() {
     console.log('sw: registration ok');
   }).catch(function(err) {
     console.error(err);
