@@ -48,6 +48,14 @@ httpRouter.get('/clipboard', async ctx => {
   ctx.body = createReadStream(indexPath)
 })
 
+httpRouter.get('/filecase', async ctx => {
+  let indexPath = config.rootPath + '/static/filecase/index.html'
+  let fileStat = statSync(indexPath)
+  ctx.type = 'html'
+  ctx.set('Content-Length', fileStat.size.toString())
+  ctx.body = createReadStream(indexPath)
+})
+
 const storage = multer.diskStorage({
   destination(req, _file, cb) {
     let params = qs.parse(req._parsedUrl.query)

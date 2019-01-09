@@ -1,0 +1,99 @@
+html,
+body,
+*
+{
+  font-family: 'Trebuchet MS', 'Bookman', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.filecase-body {
+
+  font-size: 14px;
+  background:
+    linear-gradient(45deg, #92baac 45px, transparent 45px)64px 64px,
+    linear-gradient(45deg, #92baac 45px, transparent 45px,transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px),
+    linear-gradient(-45deg, #92baac 23px, transparent 23px, transparent 68px,#92baac 68px,#92baac 113px,transparent 113px,transparent 158px,#92baac 158px);
+  background-color:#e1ebbd;
+  background-size: 128px 128px;
+  text-align: center;
+  color: white;
+
+}
+
+h1 {
+  color: #ba625f;
+}
+
+.tab-header {
+  margin-bottom: 1em;
+}
+
+.tab-header button {
+  font-size: 1.2em;
+  min-width: 35%;
+  padding: .5em 0;
+  background: transparent;
+  border: none;
+  color: #6d7683;
+}
+
+button.active {
+  font-weight: bolder;
+  border-bottom: 2px solid #6d7683;
+}
+
+#file-list-tab > a {
+  display: block;
+  font-size: 1.2em;
+  text-align: left;
+  padding: .5em 1.2em;
+  color: #1287a8;
+  text-decoration: none;
+  background: rgba(255,255,255,.4);
+}
+#file-list-tab > a > span {
+  float: right;
+  width: 1.2em;
+  height: 1.2em;
+  text-align: center;
+}
+#file-list-tab > a.temp {
+  background: rgba(255,255,255,.6);
+}
+
+
+.dropbox {
+  font-size: 1.25rem;
+  background-color: #c8dadf;
+  position: relative;
+  padding: 100px 20px;
+}
+.dropbox-icon {
+  width: 100%;
+  height: 80px;
+  fill: #92b0b3;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.tab,
+.dropbox-file,
+.dropbox-dragndrop,
+.dropbox-uploading,
+.dropbox-success,
+.dropbox-error {
+  display: none;
+}
+.dropbox-dragndrop {
+  color: #6d7683;
+}
+
+.dropbox.has-advanced-upload {
+  background-color: d9d9cb;
+  outline: 2px dashed #92b0b3;
+  outline-offset: -10px;
+}
+.dropbox.has-advanced-upload .dropbox-dragndrop {
+  display: inline;
+}
+.dropbox.is-dragover {
+  background-color: grey;
+}
