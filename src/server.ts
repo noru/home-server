@@ -10,7 +10,7 @@ import * as prettyjson from 'prettyjson'
 const staticServer = new Koa()
 staticServer.use(serve(config.staticContentPath, {
   setHeaders: (res, path: string) => {
-    if (path.endsWith('/clipboard/sw.js')) {
+    if (path.endsWith('/sw.js')) {
       res.setHeader('Service-Worker-Allowed', '/')
     }
   },
