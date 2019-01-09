@@ -30,10 +30,15 @@ textarea {
   font-weight: lighter;
 }
 
+.actions {
+  display: flex;
+  width: 100%;
+}
+
 button.btn {
   padding: 5px 10px;
   height: 40px;
-  width: 45%;
+  width: 100%;
   border-radius: 5px;
   font-size: 1em;
   color: white;
@@ -45,9 +50,15 @@ button.btn.copy {
   border-color: #107896;
 }
 
-button.btn.clear {
+button.btn.paste {
   background: #107896;
   border-color: #107896;
+  margin: 0 6px;
+}
+
+button.btn.clear {
+  background: #61a7c6;
+  border-color: #61a7c6;
 }
 
 .succ-msg {

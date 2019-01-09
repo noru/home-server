@@ -26,8 +26,11 @@
     <h1>Drew's Clipboard <span id="has-error">🚫</span><span>📋</span></h1>
     <textarea name="paste-area" id="paste-area" placeholder="paste the text here..."></textarea>
 
-    <button id="copy" class="btn copy" data-clipboard-target="#paste-area">️️✂️ → 📋 </button>
-    <button id="clear" class="btn clear">CLEAR</button>
+    <div class="actions">
+      <button id="copy" class="btn copy" data-clipboard-target="#paste-area">️️✂️ → 📋 </button>
+      <button id="paste" class="btn paste">📋 → 📝</button>
+      <button id="clear" class="btn clear">📝 → 🗑</button>
+    </div>
     <script src="/static/clipboard/app.js"></script>
     <script src="/static/clipboard/sw.js"></script>
   </body>

@@ -37,6 +37,7 @@
   var msg = $('msg'),
       pastearea = $('paste-area'),
       clear = $('clear'),
+      paste = $('paste'),
       errorIcon = $('has-error'),
       wsClient = createWsClient(pastearea, errorIcon),
       editing = false,
@@ -54,7 +55,7 @@
     if (timeoutId !== null) {
       clearTimeout(timeoutId)
     }
-    timeoutId = setTimeout(() => {
+    timeoutId = setTimeout(function() {
       wsClient.send('set::' + e.target.value)
       timeoutId = null
       editing = false
@@ -64,6 +65,23 @@
   clear.onclick = function() {
     pastearea.value = ''
     wsClient.send('set::')
+  }
+
+  paste.onclick = function() {
+    if (navigator.clipboard) {
+      editing = true
+      navigator.clipboard.readText()
+        .then(function(text) {
+          if (!!pastearea.value) {
+            pastearea.value += ('\n' + text)
+          } else {
+            pastearea.value = text
+          }
+          pastearea.dispatchEvent(new Event('input', { 'bubbles': true, 'cancelable': true }))
+        })
+    } else {
+      alert('This browser does not support this feature')
+    }
   }
 
   var syncedAt = new Date,
