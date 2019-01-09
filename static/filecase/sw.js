@@ -7,10 +7,10 @@ var filesToCache = [
   '/static/filecase/sw.js',
   '/static/filecase/manifest.json',
   '/static/filecase/favicon.png',
-  '/static/filecase/icon64.png',
-  '/static/filecase/icon128.png',
-  '/static/filecase/icon192.png',
-  '/static/filecase/icon512.png',
+  '/static/filecase/filecase64.png',
+  '/static/filecase/filecase128.png',
+  '/static/filecase/filecase192.png',
+  '/static/filecase/filecase512.png',
 ];
 
 // todo: check if service worker is installed before
@@ -43,7 +43,7 @@ self.addEventListener('fetch', function(event) {
       return response || fetch(event.request);
     }).catch(function (err) {
       // if response not cached and network not available an error is thrown => return fallback image
-      return caches.match('/static/filecase/icon512.png');
+      return caches.match('/static/filecase/filecase512.png');
     })
   )
 });
