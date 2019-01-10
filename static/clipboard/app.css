@@ -15,6 +15,25 @@
   overflow: hidden;
 }
 
+@keyframes shake {
+  0%, 60% { transform: rotate(0); }
+  70% { transform: rotate(10deg); }
+  80% { transform: rotate(-10deg); }
+  90% { transform: rotate(10deg); }
+}
+
+.filecase-link {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  animation: shake 2.5s infinite;
+}
+
+.filecase-link > img {
+  width: 2em;
+  height: 2em;
+}
+
 textarea {
   width: 100%;
   height: 50vh;
