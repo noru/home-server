@@ -1,6 +1,6 @@
 {
   "short_name": "Clipboard",
-  "name": "Drew's web clipboard",
+  "name": "Drew's Web Clipboard",
   "icons": [
     {
       "src": "/static/clipboard/icon64.png",

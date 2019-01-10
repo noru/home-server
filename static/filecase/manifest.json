@@ -1,6 +1,6 @@
 {
-  "short_name": "filecase",
-  "name": "Drew's web filecase",
+  "short_name": "Filecase",
+  "name": "Drew's Web Filecase",
   "icons": [
     {
       "src": "/static/filecase/filecase64.png",
