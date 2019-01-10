@@ -12,18 +12,9 @@ var filesToCache = [
   '/static/filecase/filecase512.png',
 ];
 
-// todo: check if service worker is installed before
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/static/filecase/sw.js', { scope: '/filecase' }).then(function() {
-    console.log('sw: registration ok');
-  }).catch(function(err) {
-    console.error(err);
-  });
-}
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(cacheName).then(function(cache) {
-      console.log('sw: writing files into cache');
       return cache.addAll(filesToCache);
     })
   )

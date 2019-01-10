@@ -14,18 +14,9 @@ var filesToCache = [
   '//cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js',
 ];
 
-// todo: check if service worker is installed before
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/static/clipboard/sw.js', { scope: '/clipboard' }).then(function() {
-    console.log('sw: registration ok');
-  }).catch(function(err) {
-    console.error(err);
-  });
-}
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(cacheName).then(function(cache) {
-      console.log('sw: writing files into cache');
       return cache.addAll(filesToCache);
     })
   )

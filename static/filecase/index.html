@@ -41,6 +41,15 @@
     </div>
 
     <script src="/static/filecase/app.js"></script>
-    <script src="/static/filecase/sw.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration()
+          .then(function(worker){
+            if (!worker) {
+              navigator.serviceWorker.register('/static/filecase/sw.js', { scope: '/filecase' })
+            }
+          })
+      }
+    </script>
   </body>
 </html>

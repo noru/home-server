@@ -33,6 +33,15 @@
       <button id="clear" class="btn clear">📝 → 🗑</button>
     </div>
     <script src="/static/clipboard/app.js"></script>
-    <script src="/static/clipboard/sw.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration()
+          .then(function(worker){
+            if (!worker) {
+              navigator.serviceWorker.register('/static/clipboard/sw.js', { scope: '/clipboard' })
+            }
+          })
+      }
+    </script>
   </body>
 </html>
