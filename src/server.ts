@@ -6,12 +6,15 @@ import { logger } from './logging'
 import config from './config'
 import routes from './routes'
 import * as prettyjson from 'prettyjson'
+import * as UrlPattern from 'url-pattern'
 
+const ServiceWorkerPathPattern = new UrlPattern('*/:app/sw.js')
 const staticServer = new Koa()
 staticServer.use(serve(config.staticContentPath, {
   setHeaders: (res, path: string) => {
-    if (path.endsWith('/sw.js')) {
-      res.setHeader('Service-Worker-Allowed', '/')
+    let isSW = ServiceWorkerPathPattern.match(path)
+    if (isSW) {
+      res.setHeader('Service-Worker-Allowed', '/' + isSW.app)
     }
   },
 }))

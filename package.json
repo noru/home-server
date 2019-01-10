@@ -30,7 +30,8 @@
     "notp": "^2.0.3",
     "prettyjson": "^1.2.1",
     "qs": "^6.6.0",
-    "thirty-two": "^1.0.2"
+    "thirty-two": "^1.0.2",
+    "url-pattern": "^1.0.3"
   },
   "devDependencies": {
     "@types/koa": "^2.0.48",
