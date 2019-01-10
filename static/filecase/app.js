@@ -4,12 +4,13 @@
     return document.getElementById(id)
   }
 
-  function clearMsg() {
+  function reset() {
     $loading.style = $error.style = $succ.style = ''
+    $fileInput.value = ''
   }
 
   function upload(files) {
-    clearMsg()
+    reset()
     var token = prompt('You know what is this')
     var formData = new FormData()
 
@@ -123,7 +124,7 @@
   $filesBtn.addEventListener('click', tabBtnClick)
   $filesBtn.addEventListener('click', loadFiles)
   $uploadBtn.addEventListener('click', tabBtnClick)
-  $uploadBtn.addEventListener('click', clearMsg)
+  $uploadBtn.addEventListener('click', reset)
 
   if (isAdvancedUpload) {
 
