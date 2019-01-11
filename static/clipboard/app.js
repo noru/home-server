@@ -85,23 +85,23 @@
   }
 
   var syncedAt = new Date,
-      deamonAt = new Date
+      ensureAt = new Date
 
   function daemon() {
     let now = new Date
     function syncContent() {
       if (now - syncedAt > 2000) {
-        !editing && wsClient.send('get')
         syncedAt = now
+        !editing && wsClient.readyState === wsClient.OPEN && wsClient.send('get')
       }
     }
 
     function ensureConnection() {
-      if (now - deamonAt > 5000) {
+      if (now - ensureAt > 5000) {
+        ensureAt = now
         if (wsClient.readyState > 1) {
           wsClient = createWsClient(pastearea, errorIcon)
         }
-        deamonAt = now
       }
     }
 
