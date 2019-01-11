@@ -10,7 +10,6 @@
   }
 
   function upload(files) {
-    reset()
     var token = prompt('You know what is this')
     var formData = new FormData()
 
@@ -30,6 +29,7 @@
     }
     xhr.onload = function() {
       $loading.style = ''
+      reset()
       if (this.status === 200) {
         $succ.style = 'display: block'
       } else {
