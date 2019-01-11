@@ -81,12 +81,63 @@ button.active {
   background: rgba(255,255,255,.4);
 }
 
+.switch-wrapper {
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+.switch-wrapper > span {
+  font-size: .7em;
+  color: #6d7683;
+}
+
+input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label.toggle {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 2.5em;
+  height: 1.2em;
+  background: grey;
+  border-radius: 100px;
+  position: relative;
+  float: right;
+}
+
+label.toggle:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 1.1em;
+  height: 1.1em;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #ba625f;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 2em;
+}
 
 .dropbox {
   font-size: 1.25rem;
   background-color: #c8dadf;
   position: relative;
-  padding: 100px 20px;
+  padding: 40px 20px 70px;
 }
 .dropbox-icon {
   width: 100%;

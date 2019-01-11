@@ -20,7 +20,7 @@
     }
 
     var xhr = new XMLHttpRequest()
-    xhr.open('POST', '/files?token=' + token)
+    xhr.open('POST', '/files?token=' + token + '&keep=' + $toVolumn.checked)
     xhr.send(formData)
     xhr.onprogress = function() {
       $loading.style = 'display: block'
@@ -105,6 +105,7 @@
   var $form = $('uploader'),
       $filesBtn = $('file-list'),
       $uploadBtn = $('upload-file'),
+      $toVolumn = $('upload-to-volumn'),
       $fileList = $('file-list-tab'),
       $fileInput = $('file'),
       $loading = $('loading-msg'),
