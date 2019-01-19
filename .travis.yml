@@ -5,14 +5,15 @@ before_deploy:
 - git config --local user.name "Travis CI"
 - git config --local user.email "travis@travis-ci.org"
 - npm run build
-- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-- git tag $TRAVIS_TAG
 
 deploy:
   provider: releases
   api_key:
     secure: A6U8hVdvx89kdO15pX+CUcqDoBpqqgtWTdJ4WqJe/xk3m+Mwbnh9Ezhv2wd8yB1hBcbwo3CnicF/RU95DSsMW72wTbScin2kG45+FJFMf+IhieySIG7KnUdNjDP02wSwrcqaRZzXUFgbEv2Pckqog21aCiSW4ADvlWLuPl8Sgzy+chYa523BA8TVAO7clD0rtoqBTeO3tJXeP31563RELJkBOnYSpK3ATFoASF8i0Q4d+9p+4vx5yH278GL+3DHTanLTXfnnn2cS7HmmrR63HKynkxK1hakrVKVy3TgNmneU2TtjDX6eJ52nUHv1b1sU1zq6ZqUkWvIiKIPsmSU0B5XnjEskQainL3cIWbSm9mBiB9HHqgnJsfww29PlhVmGHycEHLzagEmp7z/K74cjVLL60FF+nSL8Fl2Mcxq9jATCbvPTrHIWvPNCSa0C/5btz2l5IIADI4pedmqbmUpFvDWC3CZGjV6vs80pTI/egRETtuzAhPkJQklXtlhgq7HBBqZrs+M9nx9F9CP+sxAAuUBjYQmetQrleEhnu8yCB2gGrLBsnBKvuXvHTlwLfxS3+ZtKmjYCfb+zRI6cc4MPEqJsaGMWMN5yn02HlrH3POiW3hMv/hlSiBVFHOS+TEu48jPkPYfld3RLkB9qv3K1UPwDoOvWI7qEXcFSPIDL24w=
-  file: "./dist"
+  file: "dist/**/*"
+  file_glob: true
+  skip_cleanup: true
   on:
     condition: $TRAVIS_COMMIT_MESSAGE == *"[Release]"*
     repo: noru/home-server
+    all_branches: true
