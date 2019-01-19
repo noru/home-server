@@ -4,7 +4,11 @@ node_js:
 before_deploy:
 - git config --local user.name "Travis CI"
 - git config --local user.email "travis@travis-ci.org"
+- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M')-$(git log --format=%h -1)}
+- git tag $TRAVIS_TAG
 - npm run build
+- mv dist home-server
+- tar -zcf release.tar.gz home-server
 
 deploy:
   provider: releases
